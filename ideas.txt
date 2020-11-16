@@ -1,0 +1,4 @@
+Implementation ideas
+  Nodes can have unlimited children
+  vector of node pointers?
+  

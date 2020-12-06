@@ -20,7 +20,7 @@ class trie{
 
 class node{
     private:
-        char key;
+        std::string key;
         std::vector<*node> children;
         int count;
 

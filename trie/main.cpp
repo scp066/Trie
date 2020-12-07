@@ -7,17 +7,21 @@ class node{
         node* child[26];
         int count;
 
+
     public:
         node(std::string word);
         ~node();
+        int getcount();
+        std::string getkey();
     friend class trie;
 };
 
 class trie{
     private:
         node* root;
-        void destroy();
-        node* search(node* root, std::string& word);
+        void destroy(node* root);
+        void changecase(std::string& word);
+        node* search(node* root, std::string& word, int depth);
         node* insert(node* root, std::string& word, int depth);
 
     public:

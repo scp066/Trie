@@ -11,7 +11,7 @@ int main(int argc, char *argv[]){
     /* For test automation
     if(argc !=2){
         std::cout<<"Usage:\n";
-        std::cout<<"./prog <fname>\n";
+        std::cout<<"./prog <file in> <dot file name>\n";
         return 0;
     }
     std::ifstream file;
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
     trie tree;
     tree.insert("hello");
     if(tree.search("hell")){
-        std::cout<<"Found!"<<std::endl;
+        std::cout<<tree.search("hell")->getkey()<<std::endl;
     }
     tree.insert("hello");
     tree.insert("Hello");
@@ -34,5 +34,6 @@ int main(int argc, char *argv[]){
     if(temp){
         std::cout<<temp->getcount()<<std::endl;
     }
+    std::string fname = "hello.gv";
+    tree.generatedot(fname);
 }
-

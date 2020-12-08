@@ -69,7 +69,12 @@ void trie::generatedot(node* root, std::ofstream& file){
 	}
 	for(int i=0; i<26; i++){
 		if(root->child[i]){
-			file<<root->key<<" -- "<<root->child[i]->key<<";\n";
+			if(root->key == " "){
+				file<<"\"ROOT\""<<" -- \""<<root->child[i]->key<<"\";\n";
+			}
+			else{
+				file<<"\""<<root->key<<"\" -- \""<<root->child[i]->key<<"\";\n";
+			}
 			generatedot(root->child[i], file);
 		}
 	}

@@ -37,7 +37,6 @@ node* trie::insert(node* root, std::string& word, int depth = 1){
 		return new node(word);
 	}
 	if(root->key == word){
-		root->count++;
 		return root;
 	}
 	std::string fragment = word.substr(0,depth);
@@ -92,6 +91,10 @@ trie::~trie(){
 
 void trie::insert(std::string word){
 	changecase(word);
+	node* t = search(this->root,word);
+	if(t){
+		t->count+=1;
+	}
 	int length = word.length()+1;
 	for(int i=1; i<length; i++){
 		std::string fragment=word.substr(0,i);

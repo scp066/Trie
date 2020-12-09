@@ -37,6 +37,9 @@ node* trie::insert(node* root, std::string& word, int depth = 1){
 	if(!root){
 		return new node(word);
 	}
+	if(root->key == word){
+		return root;
+	}
 	std::string fragment = word.substr(0,depth);
 	int index = fragment[depth-1]-97;
 	root->child[index]=insert(root->child[index], word, depth+1);
